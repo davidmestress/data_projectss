@@ -1,0 +1,53 @@
+---
+title: "David Mestres"
+output: html_document
+date: "2025-09-26"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r }
+spotify <- read.csv("C:/Users/megoD/Downloads/Popular_Spotify_Songs.csv",                      stringsAsFactors = FALSE)
+head(spotify)
+```
+
+```{r }
+library(ggplot2)
+ taylor <- subset(spotify, artist.s._name == "Taylor Swift")
+ View(taylor)
+ # Gráfico de dispersión
+ ggplot(taylor, aes(x = in_spotify_playlists, y = streams)) +
+geom_point(color = "blue", alpha = 0.6, size = 3) +
+labs(title = "Relación entre reproducciones y playlists en Spotify (Taylor Swift)",
+  x = "Número de playlists en Spotify",
+   y = "Número de reproducciones") +
+theme_minimal()
+
+
+```
+
+
+```{r }
+# Calcular total y media de streams por año
+library(dplyr)
+
+taylor_summary <- taylor %>%
+  group_by(released_year) %>%
+  summarise(
+    total_streams = sum(streams, na.rm = TRUE),
+    mean_streams = mean(streams, na.rm = TRUE),
+    n_songs = n()
+  ) %>%
+  arrange(released_year)
+
+# Mostrar resumen
+taylor_summary
+```
