@@ -2,7 +2,7 @@
 
 Bienvenido/a a este proyecto de analítica avanzada de clientes. En este repositorio se aborda la resolución de un problema de negocio real utilizando técnicas de análisis exploratorio, segmentación y Machine Learning para predecir el comportamiento futuro de los consumidores.
 
-Este trabajo fue desarrollado como parte de la evaluación continua (PEC 4) de la Universitat Oberta de Catalunya (UOC).
+Este trabajo fue desarrollado como parte de la evaluación continua de la asignatura Analítica de Clientes.
 
 ---
 
